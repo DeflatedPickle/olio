@@ -1,0 +1,29 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+}
+
+repositories {
+    mavenCentral()
+
+    maven {
+        url "https://s01.oss.sonatype.org/content/repositories/releases/"
+    }
+}
+
+dependencies {
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    api "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}"
+    api "org.jetbrains.kotlinx:kotlinx-serialization-json:${kotlinSerialization}"
+
+    implementation "io.github.pdvrieze.xmlutil:core-jvm:0.86.1"
+    implementation "io.github.pdvrieze.xmlutil:serialization-jvm:0.86.1"
+
+    implementation 'com.twelvemonkeys.imageio:imageio-core:3.8.2'
+
+    testImplementation 'org.jetbrains.kotlin:kotlin-test'
+}
+
+test {
+    useJUnitPlatform()
+}
