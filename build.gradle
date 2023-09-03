@@ -1,4 +1,5 @@
 plugins {
+    id 'antlr'
     id 'org.jetbrains.kotlin.jvm'
     id 'org.jetbrains.kotlin.plugin.serialization'
 }
@@ -15,6 +16,9 @@ dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     api "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}"
     api "org.jetbrains.kotlinx:kotlinx-serialization-json:${kotlinSerialization}"
+
+    antlr "org.antlr:antlr4:4.13.0"
+    implementation "org.antlr:antlr4-runtime:4.13.0"
 
     implementation "io.github.pdvrieze.xmlutil:core-jvm:0.86.1"
     implementation "io.github.pdvrieze.xmlutil:serialization-jvm:0.86.1"

@@ -7,11 +7,11 @@ import kotlin.test.Test
 class ACBLReaderTest {
     @Test
     fun `read acbl`() {
-        val palette = AdobeSwatchbookTest::class.java
+        val palette = ACBLReaderTest::class.java
             .getResource("/couché.acbl")?.let { ACBLReader.read(it.openStream()) }
 
         if (palette != null) {
-            println((palette as NamedPalette).colours)
+            println((palette as NamedPalette).getNamedSwatch())
         }
     }
 }

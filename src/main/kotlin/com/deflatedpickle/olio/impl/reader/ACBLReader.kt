@@ -11,6 +11,7 @@ import java.io.InputStream
 
 object ACBLReader : PaletteReader {
     override val formatName = "Adobe Color Book Legacy"
+    override val formatExtensions = listOf("acbl")
 
     override fun read(input: InputStream): Palette {
         val xml = XML.defaultInstance.decodeFromString(
@@ -24,7 +25,7 @@ object ACBLReader : PaletteReader {
             map[s.name] = Color(
                 ColorSpaces.getColorSpace(ColorSpaces.CS_GENERIC_CMYK),
                 s.colour.split(" ").map { it.toFloat() }.toFloatArray(),
-                0f
+                1f
             )
         }
 

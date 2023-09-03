@@ -2,19 +2,21 @@ package com.deflatedpickle.olio
 
 import com.deflatedpickle.olio.api.Palette
 import com.deflatedpickle.olio.api.PaletteReader
-import com.deflatedpickle.olio.api.PaletteWriter
-import com.deflatedpickle.olio.impl.reader.ACBLReader
+import com.deflatedpickle.olio.impl.reader.*
 import java.io.File
 import java.io.IOException
-import java.io.InputStream
-import java.io.OutputStream
-import java.net.URL
 
 object Olio {
-    internal val readers = mutableMapOf<String, PaletteReader>()
+    private val readers = mutableMapOf<String, PaletteReader>()
 
     init {
         readers["acbl"] = ACBLReader
+        // TODO: make a format resolver
+        readers["pal"] = JascPalReader
+        readers["psppalette"] = JascPalReader
+        readers["pal"] = CorelDRAWPalReader
+        readers["txt"] = MetaCreationsTXTReader
+        readers["hpl"] = HPLReader
     }
 
     fun read(input: File): Palette {
