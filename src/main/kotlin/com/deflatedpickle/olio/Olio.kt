@@ -20,6 +20,7 @@ object Olio {
         readers["gpl"] = GPLReader
         readers["colors"] = ColorsReader
         readers["spl"] = SPLReader
+        readers["skp"] = SKPReader
     }
 
     fun read(input: File): Palette {
