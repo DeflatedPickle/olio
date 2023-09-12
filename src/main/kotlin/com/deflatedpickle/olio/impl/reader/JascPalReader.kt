@@ -13,7 +13,7 @@ import java.awt.Color
 import java.io.InputStream
 
 object JascPalReader : PaletteReader {
-    override val formatName = "Jasc Paint Shop Pro"
+    override val formatName = "Paint Shop Pro"
     override val formatExtensions = listOf("pal", "psppalette")
 
     override fun read(input: InputStream): Palette {

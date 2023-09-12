@@ -1,17 +1,21 @@
 package com.deflatedpickle.olio.impl.reader
 
 import com.deflatedpickle.olio.impl.palette.NamedPalette
-import com.deflatedpickle.olio.serialize.acbl.AdobeSwatchbookTest
 import kotlin.test.Test
+import kotlin.test.assertNotNull
+import kotlin.test.assertTrue
 
 class ACBLReaderTest {
     @Test
     fun `read acbl`() {
         val palette = ACBLReaderTest::class.java
-            .getResource("/couché.acbl")?.let { ACBLReader.read(it.openStream()) }
+            .getResource("/couché.acbl")?.let {
+                ACBLReader.read(it.openStream())
+            }
 
-        if (palette != null) {
-            println((palette as NamedPalette).getNamedSwatch())
-        }
+        assertNotNull(palette)
+        assertTrue { palette.getSwatch().isNotEmpty() }
+
+        println((palette as NamedPalette).getNamedSwatch())
     }
 }

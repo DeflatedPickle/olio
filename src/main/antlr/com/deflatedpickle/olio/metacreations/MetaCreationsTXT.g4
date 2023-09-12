@@ -39,13 +39,13 @@ HV: 'HV';
 SV: 'SV';
 VV: 'VV';
 
+CHAR: [A-Za-z];
+FLOAT: INT PERIOD INT+;
+INT: [0-9]+;
 PERIOD: '.';
 COMMA: ',';
 COLON: ':';
 NEWLINE: '\r\n' | '\n';
-CHAR: [A-Za-z];
-INT: [0-9]+;
-FLOAT: INT PERIOD INT+;
 
 SPACE: [ \t\r\n] -> channel(HIDDEN);
 

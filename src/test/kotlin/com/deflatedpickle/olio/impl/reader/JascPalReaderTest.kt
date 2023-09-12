@@ -1,15 +1,20 @@
 package com.deflatedpickle.olio.impl.reader
 
-import org.junit.jupiter.api.Test
+import kotlin.test.Test
+import kotlin.test.assertNotNull
+import kotlin.test.assertTrue
 
 class JascPalReaderTest {
     @Test
     fun `read jasc pal`() {
         val palette = JascPalReaderTest::class.java
-            .getResource("/Automne.pal")?.let { JascPalReader.read(it.openStream()) }
+            .getResource("/Automne.pal")?.let {
+                JascPalReader.read(it.openStream())
+            }
 
-        if (palette != null) {
-            println(palette.getSwatch())
-        }
+        assertNotNull(palette)
+        assertTrue { palette.getSwatch().isNotEmpty() }
+
+        println(palette.getSwatch())
     }
 }

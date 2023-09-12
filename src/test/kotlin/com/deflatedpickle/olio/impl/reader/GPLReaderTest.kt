@@ -5,12 +5,12 @@ import kotlin.test.Test
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
-class CorelDRAWPalReaderTest {
+class GPLReaderTest {
     @Test
-    fun `read coreldraw pal`() {
-        val palette = CorelDRAWPalReaderTest::class.java
-            .getResource("/TEK140.pal")?.let {
-                CorelDRAWPalReader.read(it.openStream())
+    fun `read gpl`() {
+        val palette = GPLReaderTest::class.java
+            .getResource("/Tango.gpl")?.let {
+                GPLReader.read(it.openStream())
             }
 
         assertNotNull(palette)

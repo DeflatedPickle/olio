@@ -1,4 +1,4 @@
-grammar ColdFusionHPL;
+grammar HPL;
 
 /*
 Palette
@@ -8,12 +8,12 @@ Version 4.0
 */
 
 @header {
-package com.deflatedpickle.olio.coldfusion;
+package com.deflatedpickle.olio.hpl;
 }
 
-start: palette NEWLINE version NEWLINE (NEWLINE rgb)+;
+start: header NEWLINE version NEWLINE (NEWLINE rgb)+;
 
-palette: 'Palette';
+header: 'Palette';
 version: 'Version' (INT PERIOD INT);
 rgb: INT INT INT;
 

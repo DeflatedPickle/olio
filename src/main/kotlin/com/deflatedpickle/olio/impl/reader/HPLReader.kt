@@ -4,8 +4,8 @@ package com.deflatedpickle.olio.impl.reader
 
 import com.deflatedpickle.olio.api.Palette
 import com.deflatedpickle.olio.api.PaletteReader
-import com.deflatedpickle.olio.coldfusion.ColdFusionHPLLexer
-import com.deflatedpickle.olio.coldfusion.ColdFusionHPLParser
+import com.deflatedpickle.olio.hpl.HPLLexer
+import com.deflatedpickle.olio.hpl.HPLParser
 import com.deflatedpickle.olio.impl.palette.UnnamedPalette
 import org.antlr.v4.runtime.CharStreams
 import org.antlr.v4.runtime.CommonTokenStream
@@ -13,13 +13,13 @@ import java.awt.Color
 import java.io.InputStream
 
 object HPLReader : PaletteReader {
-    override val formatName = "ColdFusion Studio"
+    override val formatName = "Homesite"
     override val formatExtensions = listOf("hpl")
 
     override fun read(input: InputStream): Palette {
-        val lexer = ColdFusionHPLLexer(CharStreams.fromStream(input))
+        val lexer = HPLLexer(CharStreams.fromStream(input))
         val tokenStream = CommonTokenStream(lexer)
-        val parser = ColdFusionHPLParser(tokenStream)
+        val parser = HPLParser(tokenStream)
 
         val list = mutableListOf<Color>()
 

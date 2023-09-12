@@ -17,6 +17,9 @@ object Olio {
         readers["pal"] = CorelDRAWPalReader
         readers["txt"] = MetaCreationsTXTReader
         readers["hpl"] = HPLReader
+        readers["gpl"] = GPLReader
+        readers["colors"] = ColorsReader
+        readers["spl"] = SPLReader
     }
 
     fun read(input: File): Palette {
